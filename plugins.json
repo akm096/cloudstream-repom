@@ -1,0 +1,41 @@
+[
+    {
+        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Korduene_Logo.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akm096/cloudstream-repom",
+        "fileSize": 7296,
+        "status": 1,
+        "language": "en",
+        "authors": [
+            "Cloudburst",
+            "Luna712"
+        ],
+        "tvTypes": [
+            "Movie"
+        ],
+        "version": 1,
+        "internalName": "ExampleProvider",
+        "description": "Lorem ipsum",
+        "url": "https://raw.githubusercontent.com/akm096/cloudstream-repom/builds/ExampleProvider.cs3",
+        "name": "ExampleProvider"
+    },
+    {
+        "iconUrl": "https://sezonlukdizi.cc/favicon.ico",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akm096/cloudstream-repom",
+        "fileSize": 23190,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "akm096"
+        ],
+        "tvTypes": [
+            "TvSeries"
+        ],
+        "version": 1,
+        "internalName": "SezonlukDiziProvider",
+        "description": "T\u00fcrk\u00e7e altyaz\u0131l\u0131 ve dublajl\u0131 yabanc\u0131 dizi izleme - sezonlukdizi.cc",
+        "url": "https://raw.githubusercontent.com/akm096/cloudstream-repom/builds/SezonlukDiziProvider.cs3",
+        "name": "SezonlukDiziProvider"
+    }
+]
