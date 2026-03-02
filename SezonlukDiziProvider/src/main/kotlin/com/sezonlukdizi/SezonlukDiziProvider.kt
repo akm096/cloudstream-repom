@@ -227,7 +227,7 @@ class SezonlukDiziProvider : MainAPI() {
 
     // ==================== Helpers ====================
 
-    private fun extractDirectLinks(
+    private suspend fun extractDirectLinks(
         html: String,
         referer: String,
         callback: (ExtractorLink) -> Unit,
@@ -238,15 +238,16 @@ class SezonlukDiziProvider : MainAPI() {
             .findAll(html).forEach { match ->
                 val m3u8Url = match.groupValues[1]
                 callback.invoke(
-                    ExtractorLink(
+                    newExtractorLink(
                         source = name,
                         name = "$name HLS",
                         url = m3u8Url,
-                        referer = referer,
-                        quality = Qualities.Unknown.value,
-                        type = INFER_TYPE,
-                        headers = mapOf("User-Agent" to USER_AGENT, "Referer" to referer)
-                    )
+                        type = INFER_TYPE
+                    ) {
+                        this.referer = referer
+                        this.quality = Qualities.Unknown.value
+                        this.headers = mapOf("User-Agent" to USER_AGENT, "Referer" to referer)
+                    }
                 )
             }
 
@@ -256,15 +257,16 @@ class SezonlukDiziProvider : MainAPI() {
                 val mp4Url = match.groupValues[1]
                 if (!mp4Url.contains("logo") && !mp4Url.contains("banner")) {
                     callback.invoke(
-                        ExtractorLink(
+                        newExtractorLink(
                             source = name,
                             name = "$name MP4",
                             url = mp4Url,
-                            referer = referer,
-                            quality = Qualities.Unknown.value,
-                            type = INFER_TYPE,
-                            headers = mapOf("User-Agent" to USER_AGENT, "Referer" to referer)
-                        )
+                            type = INFER_TYPE
+                        ) {
+                            this.referer = referer
+                            this.quality = Qualities.Unknown.value
+                            this.headers = mapOf("User-Agent" to USER_AGENT, "Referer" to referer)
+                        }
                     )
                 }
             }
